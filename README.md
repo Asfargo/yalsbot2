@@ -7,12 +7,13 @@ Criado por
  - Benzi (Quoona)
  - [Vinicios (Yals)](http://yals.tk/)
  - Italo (Osama)
+ - [Burkes](https://github.com/Burkes)
 
 Instalação
 -----
 Execute este script em sua página dentro do plug.
 
-`javascript:(function(){$.getScript("https://rawgit.com/vinicios-yals/yalstkbot/master/botYals.extension.js");}());`
+`javascript:(function(){$.getScript("https://rawgit.com/vinicios-yals/yalsbot/master/botYals.extension.js");}());`
 
 ###Comandos###
 Você pode encontrar todos os comandos [clicando aqui](http://git.io/vTFKE).
