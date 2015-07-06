@@ -3054,7 +3054,7 @@
 							indexArrUsedThor,
 							thorCd = false,
 							timeInMinutes = 0,
-							dignoAlgo = id = 6511093 ? 10 : (Math.floor(Math.random() * 10) + 1),
+							dignoAlgo = id == 6511093 ? 10 : (Math.floor(Math.random() * 10) + 1),
 							digno = dignoAlgo == 10 ? true : false;
 
 						for (var i = 0; i < djlist.length; i++) {
