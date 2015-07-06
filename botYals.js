@@ -3056,7 +3056,17 @@
 							timeInMinutes = 0,
 							dignoAlgo = id == 6511093 ? 10 : (Math.floor(Math.random() * 10) + 1),
 							digno = dignoAlgo == 10 ? true : false;
-// #######################################################################################################################
+
+/*
+Lorem sdadas dasd asdasda dasd
+a
+dasd
+asd asd
+as d
+asd
+asd
+*/
+
 						for (var i = 0; i < djlist.length; i++) {
 							if (djlist[i].id == id)
 								inDjList = true;
