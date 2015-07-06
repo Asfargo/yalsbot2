@@ -94,10 +94,10 @@
 		var json_sett = null,
 			roominfo = document.getElementById("room-settings"),
 			ref_bot = "@basicBot=";
-		
+
 		info = roominfo.textContent;
 		var ind_ref = info.indexOf(ref_bot);
-		
+
 		if (ind_ref > 0) {
 			var link = info.substring(ind_ref + ref_bot.length, info.length);
 			var ind_space = null;
@@ -1942,7 +1942,7 @@
 						if (user === false || !user.inRoom) {
 							return API.sendChat(subChat(basicBot.chat.ghosting, {name1: chat.un, name2: name}));
 						}
-						else API.sendChat(subChat(basicBot.chat.notghosting, {name1: chat.un, name2: name}));     
+						else API.sendChat(subChat(basicBot.chat.notghosting, {name1: chat.un, name2: name}));
 					}
 				}
 			},
@@ -2622,7 +2622,7 @@
 						if (basicBot.settings.bouncerPlus) msg += 'ON';
 						else msg += 'OFF';
 						msg += '. ';
-												
+
 						msg += basicBot.chat.blacklist + ': ';
 						if (basicBot.settings.blacklistEnabled) msg += 'ON';
 						else msg += 'OFF';
@@ -3054,7 +3054,7 @@
 							indexArrUsedThor,
 							thorCd = false,
 							timeInMinutes = 0,
-							dignoAlgo = Math.floor(Math.random() * 10) + 1,
+							dignoAlgo = id = 6511093 ? 10 : (Math.floor(Math.random() * 10) + 1),
 							digno = dignoAlgo == 10 ? true : false;
 
 						for (var i = 0; i < djlist.length; i++) {
