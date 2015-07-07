@@ -2,7 +2,7 @@
 
 	// Função principal do bot
 	function extend() {
-      	
+
       	// Caso essa propriedade não seja iniciada, ela tenta após 1 segundo
 		if (!window.bot)
 			return setTimeout(extend, 1 * 1000);
@@ -12,7 +12,7 @@
 
 		// Carrega as propriedades
 		bot.retrieveSettings();
-		
+
 		// Carrega o script controlador
 		bot.loadChat();
 
@@ -53,17 +53,17 @@
 		afkRankCheck: "ambassador",
 		motdEnabled: true,
 		motdInterval: 15,
-		motd: "Entrem no nosso website e leia as regras/conheca a staff > http://panelinharadioativa.tk/",
+		motd: "Bem vindo(a), leia as regras na descrição!",
 		filterChat: false,
 		etaRestriction: false,
 		welcome: true,
 		opLink: null,
-		rulesLink: "http://panelinharadioativa.tk/#regras",
-		teamLink: "http://panelinharadioativa.tk/#equipe",
+		rulesLink: "(Na descrição)",
+		teamLink: "(Na descrição)",
 		themeLink: null,
 		fbLink: null,
 		youtubeLink: null,
-		websiteLink: "http://panelinharadioativa.tk/",
+		websiteLink: "(Na descrição)",
 		intervalMessages: [],
 		messageInterval: 5,
 		songstats: false,
