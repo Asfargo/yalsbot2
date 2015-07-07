@@ -3106,50 +3106,6 @@
 						return void(0);
 					}
 				}
-			},
-			demoteCommand: {
-				command: ['demote', 'd']
-				rank: 'mod',
-				type: 'exact',
-				functionality: function (chat, cmd) {
-					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-					else {
-						for (var i = 0; i < basicBot.settings.bouncerList.length; i++) {
-							if (chat.uid === basicBot.settings.bouncerList[i]) {
-								$.ajax({
-									type: 'POST',
-									url: '/_/staff/update',
-									dataType: 'json',
-									contentType: 'application/json',
-									data: JSON.stringify({userID: chat.uid, role: 0})
-								});
-							}
-						}
-					}
-				}
-			},
-			promoteCommand: {
-				command: ['promote', 'p']
-				rank: 'mod',
-				type: 'exact',
-				functionality: function (chat, cmd) {
-					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-					else {
-						for (var i = 0; i < basicBot.settings.bouncerList.length; i++) {
-							if (chat.uid === basicBot.settings.bouncerList[i]) {
-								$.ajax({
-									type: 'POST',
-									url: '/_/staff/update',
-									dataType: 'json',
-									contentType: 'application/json',
-									data: JSON.stringify({userID: chat.uid, role: 2})
-								});
-							}
-						}
-					}
-				}
 			}
 		}
 	};
