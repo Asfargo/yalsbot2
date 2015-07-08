@@ -177,6 +177,7 @@
 			afkRemoval: true,
 			maximumDc: 60,
 			thorInterval: 10,
+			bouncerPlus: true,
 			blacklistEnabled: true,
 			lockdownEnabled: false,
 			lockGuard: false,
@@ -191,6 +192,7 @@
 			autodisable: false,
 			commandCooldown: 1,
 			usercommandsEnabled: true,
+			bouncerList: [6184841, 4253146, 4383472, 6511093],
 			lockskipPosition: 3,
 			lockskipReasons: [
 				["theme", "This song does not fit the room theme. "],
@@ -409,6 +411,31 @@
 				else votes.ratio = (votes.woot / votes.meh).toFixed(2);
 				return votes;
 
+			},
+			getPermission: function (obj) { //1 requests
+				var u;
+				if (typeof obj === "object") u = obj;
+				else u = API.getUser(obj);
+				for (var i = 0; i < botCreatorIDs.length; i++) {
+					if (botCreatorIDs[i].indexOf(u.id) > -1) return 10;
+				}
+				for (var i = 0; i < basicBot.settings.bouncerList.length; i++) {
+					if (basicBot.settings.bouncerList[i].indexOf(u.id) > -1) return 3;
+				}
+				if (u.gRole < 2) return u.role;
+				else {
+					switch (u.gRole) {
+						case 2:
+							return 7;
+						case 3:
+							return 8;
+						case 4:
+							return 9;
+						case 5:
+							return 10;
+					}
+				}
+				return 0;
 			},
 			moveUser: function (id, pos, priority) {
 				var user = basicBot.userUtilities.lookupUser(id);
@@ -1157,6 +1184,7 @@
 			};
 			var u = API.getUser();
 			if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
+			if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
 			basicBot.connectAPI();
 			API.moderateDeleteChat = function (cid) {
 				$.ajax({
@@ -1267,7 +1295,12 @@
 						minPerm = 4;
 						break;
 					case 'mod':
-						minPerm = 3;
+						if (basicBot.settings.bouncerPlus) {
+							minPerm = 2;
+						}
+						else {
+							minPerm = 3;
+						}
 						break;
 					case 'bouncer':
 						minPerm = 2;
@@ -1584,6 +1617,35 @@
 					}
 				}
 			},
+
+			bouncerPlusCommand: {
+				command: 'bouncer+',
+				rank: 'mod',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						var msg = chat.message;
+						if (basicBot.settings.bouncerPlus) {
+							basicBot.settings.bouncerPlus = false;
+							return API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': 'Bouncer+'}));
+						}
+						else {
+							if (!basicBot.settings.bouncerPlus) {
+								var id = chat.uid;
+								var perm = basicBot.userUtilities.getPermission(id);
+								if (perm > 2) {
+									basicBot.settings.bouncerPlus = true;
+									return API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': 'Bouncer+'}));
+								}
+							}
+							else return API.sendChat(subChat(basicBot.chat.bouncerplusrank, {name: chat.un}));
+						}
+					}
+				}
+			},
+
 			clearchatCommand: {
 				command: 'clearchat',
 				rank: 'manager',
@@ -3042,6 +3104,50 @@
 						}
 					} else {
 						return void(0);
+					}
+				}
+			},
+			demoteCommand: {
+				command: ['demote', 'd'],
+				rank: 'mod',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						for (var i = 0; i < basicBot.settings.bouncerList.length; i++) {
+							if (chat.uid === basicBot.settings.bouncerList[i]) {
+								$.ajax({
+									type: 'POST',
+									url: '/_/staff/update',
+									dataType: 'json',
+									contentType: 'application/json',
+									data: JSON.stringify({userID: chat.uid, role: 0})
+								});
+							}
+						}
+					}
+				}
+			},
+			promoteCommand: {
+				command: ['promote', 'p']
+				rank: 'mod',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						for (var i = 0; i < basicBot.settings.bouncerList.length; i++) {
+							if (chat.uid === basicBot.settings.bouncerList[i]) {
+								$.ajax({
+									type: 'POST',
+									url: '/_/staff/update',
+									dataType: 'json',
+									contentType: 'application/json',
+									data: JSON.stringify({userID: chat.uid, role: 2})
+								});
+							}
+						}
 					}
 				}
 			}
