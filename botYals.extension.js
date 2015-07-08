@@ -20,14 +20,13 @@
 
 	// Muda as configurações padrões que são carregadas após a execução do script
 	localStorage.setItem("basicBotsettings", JSON.stringify({
-		botName: "BOT YalsBot",
+		botName: "AutoBot",
 		startupCap: 1, // 1-200
-		startupVolume: 10, // 0-100
+		startupVolume: 0, // 0-100
 		startupEmoji: true, // true ou false
 		maximumAfk: 20,
 		afkRemoval: false,
       	maximumDc: 15,
-		bouncerPlus: false,
 		blacklistEnabled: true,
 		lockdownEnabled: false,
 		lockGuard: false,
