@@ -6,9 +6,6 @@ Criado por
  - [Matthew (Yemasthui)](https://github.com/Yemasthui)
  - Benzi (Quoona)
  - [Vinicios (Yals)](http://yals.tk/)
- - Italo (Osama)
- - [Burkes](https://github.com/Burkes)
-
 Instalação
 -----
 Execute este script em sua página dentro do plug.
