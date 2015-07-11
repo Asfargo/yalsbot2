@@ -1127,14 +1127,10 @@
 				eventUserskip: $.proxy(this.eventUserskip, this),
 				eventUserjoin: $.proxy(this.eventUserjoin, this),
 				eventUserleave: $.proxy(this.eventUserleave, this),
-				//eventUserfan: $.proxy(this.eventUserfan, this),
-				//eventFriendjoin: $.proxy(this.eventFriendjoin, this),
-				//eventFanjoin: $.proxy(this.eventFanjoin, this),
 				eventVoteupdate: $.proxy(this.eventVoteupdate, this),
 				eventCurateupdate: $.proxy(this.eventCurateupdate, this),
 				eventRoomscoreupdate: $.proxy(this.eventRoomscoreupdate, this),
 				eventDjadvance: $.proxy(this.eventDjadvance, this),
-				//eventDjupdate: $.proxy(this.eventDjupdate, this),
 				eventWaitlistupdate: $.proxy(this.eventWaitlistupdate, this),
 				eventVoteskip: $.proxy(this.eventVoteskip, this),
 				eventModskip: $.proxy(this.eventModskip, this),
@@ -1146,7 +1142,6 @@
 			API.on(API.USER_SKIP, this.proxy.eventUserskip);
 			API.on(API.USER_JOIN, this.proxy.eventUserjoin);
 			API.on(API.USER_LEAVE, this.proxy.eventUserleave);
-			//API.on(API.USER_FAN, this.proxy.eventUserfan);
 			API.on(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
 			API.on(API.GRAB_UPDATE, this.proxy.eventCurateupdate);
 			API.on(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
@@ -1161,7 +1156,6 @@
 			API.off(API.USER_SKIP, this.proxy.eventUserskip);
 			API.off(API.USER_JOIN, this.proxy.eventUserjoin);
 			API.off(API.USER_LEAVE, this.proxy.eventUserleave);
-			//API.off(API.USER_FAN, this.proxy.eventUserfan);
 			API.off(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
 			API.off(API.CURATE_UPDATE, this.proxy.eventCurateupdate);
 			API.off(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
@@ -1172,12 +1166,13 @@
 			API.off(API.HISTORY_UPDATE, this.proxy.eventHistoryupdate);
 		},
 		startup: function () {
-			if (window.location.pathname != "/barzinho" || window.location.pathname != "/fucked-on-hell")
+			var u = API.getUser(),
+				startupPermission = [6219413, 7765869, 4253146, 4732821];
+			if (startupPermission.indexOf(u.uid); == -1)
 				return false;
 			Function.prototype.toString = function () {
 				return 'Function.'
 			};
-			var u = API.getUser();
 			if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
 			if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
 			basicBot.connectAPI();

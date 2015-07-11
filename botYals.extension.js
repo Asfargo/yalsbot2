@@ -23,7 +23,7 @@
 		botName: "AutoBot",
 		startupCap: 1, // 1-200
 		startupVolume: 0, // 0-100
-		startupEmoji: true, // true ou false
+		startupEmoji: false, // true ou false
 		maximumAfk: 20,
 		afkRemoval: false,
       	maximumDc: 15,
@@ -52,7 +52,7 @@
 		afkRankCheck: "ambassador",
 		motdEnabled: true,
 		motdInterval: 15,
-		motd: "Bem vindo(a), leia as regras na descrição!",
+		motd: "Leia as regras na descrição!",
 		filterChat: false,
 		etaRestriction: false,
 		welcome: true,
@@ -67,10 +67,7 @@
 		messageInterval: 5,
 		songstats: false,
 		commandLiteral: "!",
-		blacklists: {
-			NSFW: "https://rawgit.com/italocjs/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
-			OP: "https://rawgit.com/italocjs/basicBot-customization/master/blacklists/ExampleOPlist.json"
-		}
+		blacklists: {}
 	}));
 
 	// Executa o script
