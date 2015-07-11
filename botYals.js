@@ -1172,7 +1172,7 @@
 			API.off(API.HISTORY_UPDATE, this.proxy.eventHistoryupdate);
 		},
 		startup: function () {
-			if (window.location.pathname != "/barzinho")
+			if (window.location.pathname != "/barzinho" || window.location.pathname != "/fucked-on-hell")
 				return false;
 			Function.prototype.toString = function () {
 				return 'Function.'
