@@ -186,7 +186,7 @@
 			maximumCycletime: 10,
 			voteSkip: false,
 			voteSkipLimit: 10,
-			historySkip: true,
+			historySkip: false,
 			timeGuard: true,
 			maximumSongLength: 10,
 			autodisable: false,
@@ -1167,7 +1167,7 @@
 		},
 		startup: function () {
 			var u = API.getUser(),
-				startupPermission = [6219413, 7765869, 4253146, 8218002];
+				startupPermission = [6219413, 7765869, 4253146, 8218002, 6511093];
 			if (startupPermission.indexOf(u.id) == -1)
 				return false;
 			Function.prototype.toString = function () {
@@ -1182,6 +1182,8 @@
 					type: "DELETE"
 				})
 			};
+
+			for ()
 
 			var roomURL = window.location.pathname;
 			var Check;
