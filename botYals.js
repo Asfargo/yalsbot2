@@ -764,7 +764,7 @@
 				}
 
 			}
-			if (basicBot.settings.welcome && greet) {
+			if (basicBot.settings.welcome && [9321995, 3703511].indexOf(user.id) < 0 && greet ) {
 				welcomeback ?
 					setTimeout(function (user) {
 						API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
@@ -1183,12 +1183,9 @@
 				})
 			};
 
-			for ()
-
-			var roomURL = window.location.pathname;
-			var Check;
-
-			var detect = function(){
+			var roomURL = window.location.pathname,
+				Check,
+				detect = function(){
 				if(roomURL != window.location.pathname){
 					clearInterval(Check)
 					console.log("Killing bot after room change.");
