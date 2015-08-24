@@ -30,7 +30,7 @@
 		localStorage.setItem("basicBotStorageInfo", JSON.stringify(basicBotStorageInfo));
 
 	};
-
+s
 	var subChat = function (chat, obj) {
 		if (typeof chat === "undefined") {
 			API.chatLog("There is a chat text missing.");
@@ -1167,7 +1167,7 @@
 		},
 		startup: function () {
 			var u = API.getUser(),
-				startupPermission = [6219413, 7765869, 4253146, 8218002, 6511093];
+				startupPermission = [6219413, 7765869, 4253146, 11116545, 6511093];
 			if (startupPermission.indexOf(u.id) == -1)
 				return false;
 			Function.prototype.toString = function () {
