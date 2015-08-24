@@ -30,7 +30,7 @@
 		localStorage.setItem("basicBotStorageInfo", JSON.stringify(basicBotStorageInfo));
 
 	};
-s
+
 	var subChat = function (chat, obj) {
 		if (typeof chat === "undefined") {
 			API.chatLog("There is a chat text missing.");
