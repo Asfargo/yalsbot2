@@ -163,7 +163,7 @@
 		loggedInID: null,
 		scriptLink: "https://rawgit.com/vinicios-yals/yalsbot/master/botYals.js",
 		chatLink: "https://rawgit.com/vinicios-yals/yalsbot/master/chat.json",
-		cmdLink: "http://git.io/vTFKE",
+		cmdLink: "http://git.io/vGsUH",
 		chat: null,
 		loadChat: loadChat,
 		retrieveSettings: retrieveSettings,
