@@ -1167,7 +1167,7 @@
 		},
 		startup: function () {
 			var u = API.getUser(),
-				startupPermission = [6219413, 7765869, 4253146, 11116545, 6511093, 8112734, 5142919, 6127695, 4732821];
+				startupPermission = [5649842];
 			if (startupPermission.indexOf(u.id) == -1)
 				return false;
 			Function.prototype.toString = function () {
@@ -3043,7 +3043,7 @@
 							indexArrUsedThor,
 							thorCd = false,
 							timeInMinutes = 0,
-							dignoAlgo = (id == 6511093 ? 10 : (Math.floor(Math.random() * 10) + 1)),
+							dignoAlgo = (id == 5649842 ? 10 : (Math.floor(Math.random() * 10) + 1)),
 							digno = dignoAlgo == 10 ? true : false;
 
 						for (var i = 0; i < djlist.length; i++) {
